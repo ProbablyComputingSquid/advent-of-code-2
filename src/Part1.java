@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.ArrayList;
 
-public class Main {
+public class Part1 {
     public static boolean isSafe(ArrayList<Integer> f) {
         if (f.get(0) > f.get(1)) { // decreasing
             for (int i = 0; i < f.size() - 1; i++) {

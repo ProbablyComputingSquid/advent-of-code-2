@@ -36,7 +36,6 @@ public class Main {
         try {
             File myObj = new File("input.txt");
             Scanner myReader = new Scanner(myObj);
-            int line = 0;
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 String[] dataSplit = data.split(" ");
@@ -45,7 +44,6 @@ public class Main {
                     temp[i] = Integer.parseInt(dataSplit[i]);
                 }
                 f.add(new ArrayList<>(Arrays.asList(temp)));
-                line++;
             }
             myReader.close();
         } catch (FileNotFoundException e) {
@@ -55,10 +53,7 @@ public class Main {
         int total = 0;
         for (ArrayList<Integer> f_i : f) {
             if (isSafe(f_i)) {
-                System.out.println("safe");
                 total++;
-            } else {
-                System.out.println("unsafe");
             }
         }
         System.out.printf("a total of %d safe", total);

@@ -18,8 +18,6 @@ public class Part1 {
             return true;
         } else if (f.get(0) < f.get(1)) { // increasing
             for (int i = 0; i < f.size() - 1; i++) {
-                //System.out.print(f.get(i) + " ");
-                //System.out.println(f.get(i+1));
                 if (f.get(i) >= f.get(i+1)) {
                     return false;
                 }

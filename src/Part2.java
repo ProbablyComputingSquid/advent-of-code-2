@@ -5,8 +5,7 @@ import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.ArrayList;
 
 public class Part2 {
-    public static boolean isSafe(ArrayList<Integer> f) {
-        int violations = 0;
+    public static boolean isSafe(ArrayList<Integer> f, int violations) {
         if (f.get(0) > f.get(1)) { // decreasing
             for (int i = 0; i < f.size() - 1; i++) {
                 if (f.get(i) <= f.get(i+1)) {
@@ -16,6 +15,7 @@ public class Part2 {
                     violations++;
                 }
             }
+            return violations <= 1;
         } else if (f.get(0) < f.get(1)) { // increasing
             for (int i = 0; i < f.size() - 1; i++) {
                 if (f.get(i) >= f.get(i+1)) {
@@ -25,8 +25,10 @@ public class Part2 {
                     violations++;
                 }
             }
+            return violations <= 1;
         }
-        return violations <= 1;
+        f.remove(0);
+        return isSafe(f, 1);
     }
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> f = new ArrayList<>();
@@ -49,7 +51,7 @@ public class Part2 {
         }
         int total = 0;
         for (ArrayList<Integer> f_i : f) {
-            if (isSafe(f_i)) {
+            if (isSafe(f_i,0)) {
                 total++;
             }
         }
